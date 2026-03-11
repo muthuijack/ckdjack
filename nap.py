@@ -32,9 +32,9 @@ lang = st.sidebar.selectbox("Language / Idioma", ["English", "Español"])
 t = translations[lang]
 
 # 2. Load Models
-model = tf.keras.models.load_model("C:\\Users\\HP\\Downloads\\ckd_prediction_model.keras")
-scaler = joblib.load("C:\\Users\\HP\\Downloads\\scaler (2).pkl")
-imputer = joblib.load('C:\\Users\\HP\\Downloads\\num_imputer.pkl')
+model = tf.keras.models.load_model("ckd_prediction_model.keras")
+scaler = joblib.load("scaler (2).pkl")
+imputer = joblib.load("num_imputer.pkl")
 
 feature_map = {
     'serum_creatinine': 0, 'gfr': 1, 'bun': 2, 'serum_calcium': 3, 'ana': 4, 
@@ -102,4 +102,5 @@ if st.button(t["btn"]):
         pdf.cell(200, 10, txt=f"Diagnosis: {stage}", ln=True)
         pdf.cell(200, 10, txt=f"Calculated Risk: {risk:.2%}", ln=True)
         pdf_bytes = pdf.output(dest='S').encode('latin-1')
+
         st.download_button(t["download"], data=pdf_bytes, file_name="CKD_Report.pdf")
