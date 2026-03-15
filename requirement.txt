@@ -1,6 +1,6 @@
 streamlit
+tensorflow 
 joblib
-tensorflow
 numpy
 fpdf
-tensorflow 
+
