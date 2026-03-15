@@ -1,0 +1,6 @@
+streamlit
+tensorflow-cpu
+numpy
+scikit-learn
+joblib
+fpdf
